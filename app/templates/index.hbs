@@ -11,7 +11,7 @@
   <p>Number of bedrooms: {{rental.bedrooms}}</p>
 {{/each}} -->
 
-<h1> Welcome to Super Rentals </h1>
+<!-- <h1> Welcome to Super Rentals </h1>
 
 We hope you find exactly what you're looking for in a place to stay.
 
@@ -20,6 +20,19 @@ We hope you find exactly what you're looking for in a place to stay.
 {{/each}}
 
 {{#link-to "about"}}About{{/link-to}}
-{{#link-to "contact"}}Click here to contact us.{{/link-to}}
+{{#link-to "contact"}}Click here to contact us.{{/link-to}} -->
+
+<h1>Welcome to Super Rentals</h1>
+
+We hope you find exactly what you're looking for in a place to stay.
+<br /><br />
+{{filter-listing filteredList=filteredList
+autoComplete=(action 'autoComplete') search=(action 'search')}}
+{{#each model as |rentalUnit|}}
+  {{rental-listing rental=rentalUnit}}
+{{/each}}
+
+{{#link-to 'about'}}About{{/link-to}}
+{{#link-to 'contact'}}Click here to contact us.{{/link-to}}
 
 {{outlet}}
